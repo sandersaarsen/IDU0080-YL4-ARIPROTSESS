@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1f3d26be-3567-4587-8f04-9d051a525b8c" activeEnvironment="Default" name="BP-project" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b83943ed-e775-4b17-88dc-6cae28fe5b78" wsaVersion="NONE" name="bpSOAP" type="wsdl" bindingName="{http://idu0080.tud.ttu.ee/bp/}bpSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BP/services/bpSOAP?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BP/services/bpSOAP?wsdl"><con:part><con:url>http://localhost:8080/BP/services/bpSOAP?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="bp" targetNamespace="http://idu0080.tud.ttu.ee/bp/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://idu0080.tud.ttu.ee/bp/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://idu0080.tud.ttu.ee/bp/">
+      <xsd:element name="MinuTellimus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MinuTellimuseVastus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="teade" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Tellimus">
+    <wsdl:part element="tns:MinuTellimus" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TellimuseVastus">
+    <wsdl:part element="tns:MinuTellimuseVastus" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="bp">
+    <wsdl:operation name="TellimuseEsitamine">
+      <wsdl:input message="tns:Tellimus"></wsdl:input>
+      <wsdl:output message="tns:TellimuseVastus"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpSOAP" type="tns:bp">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TellimuseEsitamine">
+      <soap:operation soapAction="http://idu0080.tud.ttu.ee/bp/TellimuseEsitamine"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bp">
+    <wsdl:port binding="tns:bpSOAP" name="bpSOAP">
+      <soap:address location="http://localhost:8080/BP/services/bpSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BP/services/bpSOAP</con:endpoint></con:endpoints><con:operation id="3b80010c-cd31-495a-b27e-3c1273425dff" isOneWay="false" action="http://idu0080.tud.ttu.ee/bp/TellimuseEsitamine" name="TellimuseEsitamine" bindingOperationName="TellimuseEsitamine" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b0d8e5c1-d99b-4436-ba9d-f84ac804f8c8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BP/services/bpSOAP</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bp="http://idu0080.tud.ttu.ee/bp/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <bp:MinuTellimus>\r
+         <id>1</id>\r
+      </bp:MinuTellimus>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://idu0080.tud.ttu.ee/bp/TellimuseEsitamine"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="a8c72156-344f-4115-b9bb-536ba7dd7ab2" wsaVersion="NONE" name="CourierServicePortBinding" type="wsdl" bindingName="{http://server.order.idu0080.ttu/}CourierServicePortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPServer/services/CourierServicePort?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPServer/services/CourierServicePort?wsdl"><con:part><con:url>http://localhost:8080/BPServer/services/CourierServicePort?wsdl</con:url><con:content><![CDATA[<definitions name="CourierServiceService" targetNamespace="http://server.order.idu0080.ttu/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://server.order.idu0080.ttu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://server.order.idu0080.ttu/" schemaLocation="http://localhost:8080/BPServer/services/CourierServicePort?xsd=couriers.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getCouriersByAddressResponse">
+    <part element="tns:getCouriersByAddressResponse" name="parameters"></part>
+  </message>
+  <message name="getCouriersByAddress">
+    <part element="tns:getCouriersByAddress" name="parameters"></part>
+  </message>
+  <message name="getCourierByIdResponse">
+    <part element="tns:getCourierByIdResponse" name="parameters"></part>
+  </message>
+  <message name="getAllCouriers">
+    <part element="tns:getAllCouriers" name="parameters"></part>
+  </message>
+  <message name="getAllCouriersResponse">
+    <part element="tns:getAllCouriersResponse" name="parameters"></part>
+  </message>
+  <message name="getCourierById">
+    <part element="tns:getCourierById" name="parameters"></part>
+  </message>
+  <portType name="CourierService">
+    <operation name="getCouriersByAddress">
+      <input message="tns:getCouriersByAddress" wsam:Action="http://server.order.idu0080.ttu/CourierService/getCouriersByAddressRequest"></input>
+      <output message="tns:getCouriersByAddressResponse" wsam:Action="http://server.order.idu0080.ttu/CourierService/getCouriersByAddressResponse"></output>
+    </operation>
+    <operation name="getAllCouriers">
+      <input message="tns:getAllCouriers" wsam:Action="http://server.order.idu0080.ttu/CourierService/getAllCouriersRequest"></input>
+      <output message="tns:getAllCouriersResponse" wsam:Action="http://server.order.idu0080.ttu/CourierService/getAllCouriersResponse"></output>
+    </operation>
+    <operation name="getCourierById">
+      <input message="tns:getCourierById" wsam:Action="http://server.order.idu0080.ttu/CourierService/getCourierByIdRequest"></input>
+      <output message="tns:getCourierByIdResponse" wsam:Action="http://server.order.idu0080.ttu/CourierService/getCourierByIdResponse"></output>
+    </operation>
+  </portType>
+  <binding name="CourierServicePortBinding" type="tns:CourierService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getCouriersByAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllCouriers">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getCourierById">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CourierServiceService">
+    <port binding="tns:CourierServicePortBinding" name="CourierServicePort">
+      <soap:address location="http://localhost:8080/BPServer/services/CourierServicePort"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/BPServer/services/CourierServicePort?xsd=couriers.xsd</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.1-1 (tags/2.2.1-1-7267; 2012-08-30T14:04:51+0000) JAXWS-RI/2.2.7 JAXWS/2.2 svn-revision#unknown.-->
+<xs:schema targetNamespace="http://server.order.idu0080.ttu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.order.idu0080.ttu/">
+  <xs:element name="getAllCouriers" type="tns:getAllCouriers"/>
+  <xs:element name="getAllCouriersResponse" type="tns:getAllCouriersResponse"/>
+  <xs:element name="getCourierById" type="tns:getCourierById"/>
+  <xs:element name="getCourierByIdResponse" type="tns:getCourierByIdResponse"/>
+  <xs:element name="getCouriersByAddress" type="tns:getCouriersByAddress"/>
+  <xs:element name="getCouriersByAddressResponse" type="tns:getCouriersByAddressResponse"/>
+  <xs:complexType name="getCouriersByAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCouriersByAddressResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:courier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courier">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" nillable="true" type="tns:entAddress"/>
+      <xs:element name="enterprise" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="percent_from_order" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entAddress">
+    <xs:sequence>
+      <xs:element name="address" type="xs:int"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+      <xs:element minOccurs="0" name="street_address" type="xs:string"/>
+      <xs:element minOccurs="0" name="town_village" type="xs:string"/>
+      <xs:element minOccurs="0" name="zipcode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCourierById">
+    <xs:sequence>
+      <xs:element name="courier_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCourierByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:courier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCouriers">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAllCouriersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:courier"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPServer/services/CourierServicePort</con:endpoint></con:endpoints><con:operation id="89ed1541-f389-4fbc-b51b-4ee559c66e93" isOneWay="false" action="" name="getAllCouriers" bindingOperationName="getAllCouriers" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dd7ffa02-72ec-450a-be29-f1e611bcc048" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/CourierServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getAllCouriers/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/CourierService/getAllCouriersRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e8e00d53-aa1f-4c5f-83d6-1f26baf9e99f" isOneWay="false" action="" name="getCourierById" bindingOperationName="getCourierById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41264895-5328-4b67-a357-ca732303fa20" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/CourierServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getCourierById>\r
+         <courier_id>?</courier_id>\r
+      </ser:getCourierById>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/CourierService/getCourierByIdRequest"/></con:call></con:operation><con:operation id="b3f2cdbd-b87a-4247-ac67-84e33ec24953" isOneWay="false" action="" name="getCouriersByAddress" bindingOperationName="getCouriersByAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3a7e1ab9-d79e-4a44-b326-d5084079d752" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/CourierServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getCouriersByAddress>\r
+         <!--Optional:-->\r
+         <country>?</country>\r
+         <!--Optional:-->\r
+         <county>?</county>\r
+      </ser:getCouriersByAddress>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/CourierService/getCouriersByAddressRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0f75a500-a57a-4ca3-9bc8-78b70a0893fb" wsaVersion="NONE" name="OrderServicePortBinding" type="wsdl" bindingName="{http://server.order.idu0080.ttu/}OrderServicePortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPServer/services/OrderServicePort?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPServer/services/OrderServicePort?wsdl"><con:part><con:url>http://localhost:8080/BPServer/services/OrderServicePort?wsdl</con:url><con:content><![CDATA[<definitions name="OrderServiceService" targetNamespace="http://server.order.idu0080.ttu/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://server.order.idu0080.ttu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://server.order.idu0080.ttu/" schemaLocation="http://localhost:8080/BPServer/services/OrderServicePort?xsd=orders.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getOrdersByCustomerId">
+    <part element="tns:getOrdersByCustomerId" name="parameters"></part>
+  </message>
+  <message name="getAllOrders">
+    <part element="tns:getAllOrders" name="parameters"></part>
+  </message>
+  <message name="getOrdersByOrderId">
+    <part element="tns:getOrdersByOrderId" name="parameters"></part>
+  </message>
+  <message name="getOrdersByCustomerIdResponse">
+    <part element="tns:getOrdersByCustomerIdResponse" name="parameters"></part>
+  </message>
+  <message name="getOrdersByCustomerLastNameResponse">
+    <part element="tns:getOrdersByCustomerLastNameResponse" name="parameters"></part>
+  </message>
+  <message name="getOrdersByShippingAddressResponse">
+    <part element="tns:getOrdersByShippingAddressResponse" name="parameters"></part>
+  </message>
+  <message name="getOrdersByShippingAddress">
+    <part element="tns:getOrdersByShippingAddress" name="parameters"></part>
+  </message>
+  <message name="getAllOrdersResponse">
+    <part element="tns:getAllOrdersResponse" name="parameters"></part>
+  </message>
+  <message name="getOrdersByOrderIdResponse">
+    <part element="tns:getOrdersByOrderIdResponse" name="parameters"></part>
+  </message>
+  <message name="getOrdersByCustomerLastName">
+    <part element="tns:getOrdersByCustomerLastName" name="parameters"></part>
+  </message>
+  <portType name="OrderService">
+    <operation name="getOrdersByCustomerId">
+      <input message="tns:getOrdersByCustomerId" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerIdRequest"></input>
+      <output message="tns:getOrdersByCustomerIdResponse" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerIdResponse"></output>
+    </operation>
+    <operation name="getOrdersByShippingAddress">
+      <input message="tns:getOrdersByShippingAddress" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByShippingAddressRequest"></input>
+      <output message="tns:getOrdersByShippingAddressResponse" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByShippingAddressResponse"></output>
+    </operation>
+    <operation name="getOrdersByCustomerLastName">
+      <input message="tns:getOrdersByCustomerLastName" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerLastNameRequest"></input>
+      <output message="tns:getOrdersByCustomerLastNameResponse" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerLastNameResponse"></output>
+    </operation>
+    <operation name="getAllOrders">
+      <input message="tns:getAllOrders" wsam:Action="http://server.order.idu0080.ttu/OrderService/getAllOrdersRequest"></input>
+      <output message="tns:getAllOrdersResponse" wsam:Action="http://server.order.idu0080.ttu/OrderService/getAllOrdersResponse"></output>
+    </operation>
+    <operation name="getOrdersByOrderId">
+      <input message="tns:getOrdersByOrderId" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByOrderIdRequest"></input>
+      <output message="tns:getOrdersByOrderIdResponse" wsam:Action="http://server.order.idu0080.ttu/OrderService/getOrdersByOrderIdResponse"></output>
+    </operation>
+  </portType>
+  <binding name="OrderServicePortBinding" type="tns:OrderService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getOrdersByCustomerId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrdersByShippingAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrdersByCustomerLastName">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllOrders">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrdersByOrderId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="OrderServiceService">
+    <port binding="tns:OrderServicePortBinding" name="OrderServicePort">
+      <soap:address location="http://localhost:8080/BPServer/services/OrderServicePort"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/BPServer/services/OrderServicePort?xsd=orders.xsd</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.1 (branches/2.1-6728; 2011-02-03T14:14:58+0000) JAXWS-RI/2.2.3 JAXWS/2.2.-->
+<xs:schema targetNamespace="http://server.order.idu0080.ttu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.order.idu0080.ttu/">
+  <xs:element name="getAllOrders" type="tns:getAllOrders"/>
+  <xs:element name="getAllOrdersResponse" type="tns:getAllOrdersResponse"/>
+  <xs:element name="getOrdersByCustomerId" type="tns:getOrdersByCustomerId"/>
+  <xs:element name="getOrdersByCustomerIdResponse" type="tns:getOrdersByCustomerIdResponse"/>
+  <xs:element name="getOrdersByCustomerLastName" type="tns:getOrdersByCustomerLastName"/>
+  <xs:element name="getOrdersByCustomerLastNameResponse" type="tns:getOrdersByCustomerLastNameResponse"/>
+  <xs:element name="getOrdersByOrderId" type="tns:getOrdersByOrderId"/>
+  <xs:element name="getOrdersByOrderIdResponse" type="tns:getOrdersByOrderIdResponse"/>
+  <xs:element name="getOrdersByShippingAddress" type="tns:getOrdersByShippingAddress"/>
+  <xs:element name="getOrdersByShippingAddressResponse" type="tns:getOrdersByShippingAddressResponse"/>
+  <xs:complexType name="getOrdersByShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByShippingAddressResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:order"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="customer" type="tns:customer"/>
+      <xs:element name="order_id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="order_products" nillable="true" type="tns:orderProduct"/>
+      <xs:element name="price_total" type="xs:float"/>
+      <xs:element minOccurs="0" name="seller" type="tns:seller"/>
+      <xs:element minOccurs="0" name="shipping_address" type="tns:address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customer">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" nillable="true" type="tns:address"/>
+      <xs:element name="customer" type="xs:int"/>
+      <xs:element minOccurs="0" name="first_name" type="xs:string"/>
+      <xs:element minOccurs="0" name="last_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="address" type="xs:int"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+      <xs:element minOccurs="0" name="street_address" type="xs:string"/>
+      <xs:element minOccurs="0" name="town_village" type="xs:string"/>
+      <xs:element minOccurs="0" name="zipcode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderProduct">
+    <xs:sequence>
+      <xs:element name="order_product" type="xs:int"/>
+      <xs:element name="price" type="xs:float"/>
+      <xs:element name="price_total" type="xs:float"/>
+      <xs:element name="product_count" type="xs:int"/>
+      <xs:element minOccurs="0" name="product_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="seller">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="addresses" nillable="true" type="tns:entAddress"/>
+      <xs:element name="enterprise" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entAddress">
+    <xs:sequence>
+      <xs:element name="address" type="xs:int"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="county" type="xs:string"/>
+      <xs:element minOccurs="0" name="street_address" type="xs:string"/>
+      <xs:element minOccurs="0" name="town_village" type="xs:string"/>
+      <xs:element minOccurs="0" name="zipcode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByOrderId">
+    <xs:sequence>
+      <xs:element name="order_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByOrderIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:order"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByCustomerLastName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="last_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByCustomerLastNameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:order"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByCustomerId">
+    <xs:sequence>
+      <xs:element name="customer_id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrdersByCustomerIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:order"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllOrders">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAllOrdersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:order"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint></con:endpoints><con:operation id="df682258-6961-4fc9-a854-1646c481c556" isOneWay="false" action="" name="getAllOrders" bindingOperationName="getAllOrders" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bc098fcb-a230-4326-b81e-df63a9ce74fe" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getAllOrders/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderService/getAllOrdersRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="27d3eae5-254f-48a7-8244-b9ce6efb3cee" isOneWay="false" action="" name="getOrdersByCustomerId" bindingOperationName="getOrdersByCustomerId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="37114005-d543-4721-acff-57bc3926825a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getOrdersByCustomerId>\r
+         <customer_id>?</customer_id>\r
+      </ser:getOrdersByCustomerId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerIdRequest"/></con:call></con:operation><con:operation id="d0468943-9dbb-42f7-b2b2-13e69e7cafac" isOneWay="false" action="" name="getOrdersByCustomerLastName" bindingOperationName="getOrdersByCustomerLastName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4eabe4e6-bcd5-475e-a160-e00a6a6de992" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getOrdersByCustomerLastName>\r
+         <!--Optional:-->\r
+         <last_name>?</last_name>\r
+      </ser:getOrdersByCustomerLastName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderService/getOrdersByCustomerLastNameRequest"/></con:call></con:operation><con:operation id="cdf5280e-e5c2-43fa-bf41-4c72e88440cd" isOneWay="false" action="" name="getOrdersByOrderId" bindingOperationName="getOrdersByOrderId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="969b4e81-cedb-4b20-974a-db6821fb56e4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getOrdersByOrderId>\r
+         <order_id>?</order_id>\r
+      </ser:getOrdersByOrderId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderService/getOrdersByOrderIdRequest"/></con:call></con:operation><con:operation id="8ad02de4-648f-4878-a9d9-a071a0f0da5c" isOneWay="false" action="" name="getOrdersByShippingAddress" bindingOperationName="getOrdersByShippingAddress" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aaf3b690-7b38-4749-a954-882587737f54" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getOrdersByShippingAddress>\r
+         <!--Optional:-->\r
+         <country>?</country>\r
+         <!--Optional:-->\r
+         <county>?</county>\r
+      </ser:getOrdersByShippingAddress>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderService/getOrdersByShippingAddressRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="05596d70-cc05-47a4-a371-d216dbebfe21" wsaVersion="NONE" name="OrderShipmentServicePortBinding" type="wsdl" bindingName="{http://server.order.idu0080.ttu/}OrderShipmentServicePortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPServer/services/OrderShipmentServicePort?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPServer/services/OrderShipmentServicePort?wsdl"><con:part><con:url>http://localhost:8080/BPServer/services/OrderShipmentServicePort?wsdl</con:url><con:content><![CDATA[<definitions name="OrderShipmentServiceService" targetNamespace="http://server.order.idu0080.ttu/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://server.order.idu0080.ttu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://server.order.idu0080.ttu/" schemaLocation="http://localhost:8080/BPServer/services/OrderShipmentServicePort?xsd=order_shipments.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="insertOrderShipmentResponse">
+    <part element="tns:insertOrderShipmentResponse" name="parameters"></part>
+  </message>
+  <message name="getOrderShipmentsByOrderIdRyhmName">
+    <part element="tns:getOrderShipmentsByOrderIdRyhmName" name="parameters"></part>
+  </message>
+  <message name="insertOrderShipment">
+    <part element="tns:insertOrderShipment" name="parameters"></part>
+  </message>
+  <message name="getOrderShipmentsByOrderIdRyhmNameResponse">
+    <part element="tns:getOrderShipmentsByOrderIdRyhmNameResponse" name="parameters"></part>
+  </message>
+  <portType name="OrderShipmentService">
+    <operation name="getOrderShipmentsByOrderIdRyhmName">
+      <input message="tns:getOrderShipmentsByOrderIdRyhmName" wsam:Action="http://server.order.idu0080.ttu/OrderShipmentService/getOrderShipmentsByOrderIdRyhmNameRequest"></input>
+      <output message="tns:getOrderShipmentsByOrderIdRyhmNameResponse" wsam:Action="http://server.order.idu0080.ttu/OrderShipmentService/getOrderShipmentsByOrderIdRyhmNameResponse"></output>
+    </operation>
+    <operation name="insertOrderShipment">
+      <input message="tns:insertOrderShipment" wsam:Action="http://server.order.idu0080.ttu/OrderShipmentService/insertOrderShipmentRequest"></input>
+      <output message="tns:insertOrderShipmentResponse" wsam:Action="http://server.order.idu0080.ttu/OrderShipmentService/insertOrderShipmentResponse"></output>
+    </operation>
+  </portType>
+  <binding name="OrderShipmentServicePortBinding" type="tns:OrderShipmentService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getOrderShipmentsByOrderIdRyhmName">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="insertOrderShipment">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="OrderShipmentServiceService">
+    <port binding="tns:OrderShipmentServicePortBinding" name="OrderShipmentServicePort">
+      <soap:address location="http://localhost:8080/BPServer/services/OrderShipmentServicePort"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/BPServer/services/OrderShipmentServicePort?xsd=order_shipments.xsd</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.1-1 (tags/2.2.1-1-7267; 2012-08-30T14:04:51+0000) JAXWS-RI/2.2.7 JAXWS/2.2 svn-revision#unknown.-->
+<xs:schema targetNamespace="http://server.order.idu0080.ttu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.order.idu0080.ttu/">
+  <xs:element name="getOrderShipmentsByOrderIdRyhmName" type="tns:getOrderShipmentsByOrderIdRyhmName"/>
+  <xs:element name="getOrderShipmentsByOrderIdRyhmNameResponse" type="tns:getOrderShipmentsByOrderIdRyhmNameResponse"/>
+  <xs:element name="insertOrderShipment" type="tns:insertOrderShipment"/>
+  <xs:element name="insertOrderShipmentResponse" type="tns:insertOrderShipmentResponse"/>
+  <xs:complexType name="insertOrderShipment">
+    <xs:sequence>
+      <xs:element name="order_id" type="xs:int"/>
+      <xs:element minOccurs="0" name="ryhm_name" type="xs:string"/>
+      <xs:element minOccurs="0" name="tracking_number" type="xs:string"/>
+      <xs:element minOccurs="0" name="courier_name" type="xs:string"/>
+      <xs:element minOccurs="0" name="approx_delivery_date" type="xs:dateTime"/>
+      <xs:element name="shipping_price" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertOrderShipmentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrderShipmentsByOrderIdRyhmName">
+    <xs:sequence>
+      <xs:element name="order_id" type="xs:int"/>
+      <xs:element minOccurs="0" name="ryhm_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOrderShipmentsByOrderIdRyhmNameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:orderShipment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderShipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="approx_delivery_date" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="courier_name" type="xs:string"/>
+      <xs:element name="order" type="xs:int"/>
+      <xs:element name="order_shipment" type="xs:int"/>
+      <xs:element minOccurs="0" name="ryhm_name" type="xs:string"/>
+      <xs:element name="shipping_price" type="xs:double"/>
+      <xs:element minOccurs="0" name="tracking_number" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPServer/services/OrderShipmentServicePort</con:endpoint></con:endpoints><con:operation id="c9b9725d-27b1-4972-a36e-27dc6b2cd99d" isOneWay="false" action="" name="getOrderShipmentsByOrderIdRyhmName" bindingOperationName="getOrderShipmentsByOrderIdRyhmName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7d561c90-f913-45f5-95c8-520c9ec3347b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderShipmentServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:getOrderShipmentsByOrderIdRyhmName>\r
+         <order_id>?</order_id>\r
+         <!--Optional:-->\r
+         <ryhm_name>?</ryhm_name>\r
+      </ser:getOrderShipmentsByOrderIdRyhmName>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderShipmentService/getOrderShipmentsByOrderIdRyhmNameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9fd25437-b529-4bec-a5cb-a23e38e96f6a" isOneWay="false" action="" name="insertOrderShipment" bindingOperationName="insertOrderShipment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bbf54131-7a10-48aa-aaab-5e6f24b8603c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPServer/services/OrderShipmentServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://server.order.idu0080.ttu/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:insertOrderShipment>\r
+         <order_id>?</order_id>\r
+         <!--Optional:-->\r
+         <ryhm_name>?</ryhm_name>\r
+         <!--Optional:-->\r
+         <tracking_number>?</tracking_number>\r
+         <!--Optional:-->\r
+         <courier_name>?</courier_name>\r
+         <!--Optional:-->\r
+         <approx_delivery_date>?</approx_delivery_date>\r
+         <shipping_price>?</shipping_price>\r
+      </ser:insertOrderShipment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://server.order.idu0080.ttu/OrderShipmentService/insertOrderShipmentRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="f84cdef6-2c6c-49af-87fe-1c244ba6d7b5" wsaVersion="NONE" name="kullerSOAP" type="wsdl" bindingName="{http://idu0080.tud.ttu.ee/kuller/}kullerSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPTeenused/services/kullerSOAP?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPTeenused/services/kullerSOAP?wsdl"><con:part><con:url>http://localhost:8080/BPTeenused/services/kullerSOAP?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="kuller" targetNamespace="http://idu0080.tud.ttu.ee/kuller/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://idu0080.tud.ttu.ee/kuller/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://idu0080.tud.ttu.ee/kuller/">
+      <!--xsd:element name="KulleridParing">
+        <xsd:complexType>
+
+        </xsd:complexType>
+      </xsd:element-->
+      <xsd:complexType name="kuller">
+        <xsd:sequence>
+          <xsd:element name="kuller_id" type="xsd:int"></xsd:element>
+          <xsd:element name="nimi" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="KulleridVastus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="kuller" type="tns:kuller"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getKulleridSisend"></wsdl:message>
+  <wsdl:message name="getKulleridVastus">
+    <wsdl:part element="tns:KulleridVastus" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="kuller">
+    <wsdl:operation name="getKullerid">
+      <wsdl:input message="tns:getKulleridSisend"></wsdl:input>
+      <wsdl:output message="tns:getKulleridVastus"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="kullerSOAP" type="tns:kuller">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getKullerid">
+      <soap:operation soapAction="http://idu0080.tud.ttu.ee/kuller/getKullerid"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kuller">
+    <wsdl:port binding="tns:kullerSOAP" name="kullerSOAP">
+      <soap:address location="http://localhost:8080/BPTeenused/services/kullerSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPTeenused/services/kullerSOAP</con:endpoint></con:endpoints><con:operation id="8a74bd04-f141-4447-b474-b38b0dc4a152" isOneWay="false" action="http://idu0080.tud.ttu.ee/kuller/getKullerid" name="getKullerid" bindingOperationName="getKullerid" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="363c1a35-8f1e-4daf-85c5-6cb85e6df216" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPTeenused/services/kullerSOAP</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   &lt;soapenv:Header/>\r
+   &lt;soapenv:Body/>\r
+&lt;/soapenv:Envelope></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://idu0080.tud.ttu.ee/kuller/getKullerid"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="86dc0fb8-80d8-4eff-978f-f5398bf8a3b9" wsaVersion="NONE" name="pakkumusSOAP" type="wsdl" bindingName="{http://www.example.org/pakkumus/}pakkumusSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPTeenused/services/pakkumusSOAP?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPTeenused/services/pakkumusSOAP?wsdl"><con:part><con:url>http://localhost:8080/BPTeenused/services/pakkumusSOAP?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="pakkumus" targetNamespace="http://www.example.org/pakkumus/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/pakkumus/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/pakkumus/">
+      <xsd:element name="PakkumusParing">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="kuller_id" type="xsd:int"/>
+            <xsd:element name="tellimus" type="tns:tellimusType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PakkumusVastus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="hind" type="xsd:double"/>
+            <xsd:element minOccurs="0" name="paevade_arv" type="xsd:int"/>
+            <xsd:element name="offer_id" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="tellimusType">
+        <xsd:sequence>
+          <xsd:element name="order_id" type="xsd:int"/>
+          <xsd:element name="price_total" type="xsd:double"/>
+          <xsd:element minOccurs="0" name="seller" type="tns:seller"/>
+          <xsd:element minOccurs="0" name="shipping_address" type="tns:address"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="seller">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="addresses" nillable="true" type="tns:address"/>
+          <xsd:element name="enterprise" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="address">
+        <xsd:sequence>
+          <xsd:element name="address" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="country" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="county" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="street_address" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="town_village" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="zipcode" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PakkumusParing">
+    <wsdl:part element="tns:PakkumusParing" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PakkumusVastus">
+    <wsdl:part element="tns:PakkumusVastus" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="pakkumus">
+    <wsdl:operation name="teePakkumus">
+      <wsdl:input message="tns:PakkumusParing"></wsdl:input>
+      <wsdl:output message="tns:PakkumusVastus"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="pakkumusSOAP" type="tns:pakkumus">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="teePakkumus">
+      <soap:operation soapAction="http://idu0080.ttu.ee/pakkumus/teePakkumus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="pakkumus">
+    <wsdl:port binding="tns:pakkumusSOAP" name="pakkumusSOAP">
+      <soap:address location="http://localhost:8080/BPTeenused/services/pakkumusSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPTeenused/services/pakkumusSOAP</con:endpoint></con:endpoints><con:operation id="9facf3ef-6852-42f8-a786-8bc80b6f6001" isOneWay="false" action="http://idu0080.ttu.ee/pakkumus/teePakkumus" name="teePakkumus" bindingOperationName="teePakkumus" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6662d69b-de21-4542-bc3c-a0eba642b845" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPTeenused/services/pakkumusSOAP</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pak="http://www.example.org/pakkumus/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <pak:PakkumusParing>\r
+         <kuller_id>?</kuller_id>\r
+         <tellimus>\r
+            <order_id>?</order_id>\r
+            <price_total>?</price_total>\r
+            <!--Optional:-->\r
+            <seller>\r
+               <!--Zero or more repetitions:-->\r
+               <addresses>\r
+                  <address>?</address>\r
+                  <!--Optional:-->\r
+                  <country>?</country>\r
+                  <!--Optional:-->\r
+                  <county>?</county>\r
+                  <!--Optional:-->\r
+                  <street_address>?</street_address>\r
+                  <!--Optional:-->\r
+                  <town_village>?</town_village>\r
+                  <!--Optional:-->\r
+                  <zipcode>?</zipcode>\r
+               </addresses>\r
+               <enterprise>?</enterprise>\r
+               <!--Optional:-->\r
+               <name>?</name>\r
+            </seller>\r
+            <!--Optional:-->\r
+            <shipping_address>\r
+               <address>?</address>\r
+               <!--Optional:-->\r
+               <country>?</country>\r
+               <!--Optional:-->\r
+               <county>?</county>\r
+               <!--Optional:-->\r
+               <street_address>?</street_address>\r
+               <!--Optional:-->\r
+               <town_village>?</town_village>\r
+               <!--Optional:-->\r
+               <zipcode>?</zipcode>\r
+            </shipping_address>\r
+         </tellimus>\r
+      </pak:PakkumusParing>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://idu0080.ttu.ee/pakkumus/teePakkumus"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="7d339a7e-2471-4f1d-9e8a-238909a47b66" wsaVersion="NONE" name="transportSOAP" type="wsdl" bindingName="{http://idu0080.tud.ttu.ee/transport/}transportSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/BPTeenused/services/transportSOAP?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/BPTeenused/services/transportSOAP?wsdl"><con:part><con:url>http://localhost:8080/BPTeenused/services/transportSOAP?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="transport" targetNamespace="http://idu0080.tud.ttu.ee/transport/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://idu0080.tud.ttu.ee/transport/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://idu0080.tud.ttu.ee/transport/">
+      <xsd:element name="Transport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pakkumus_id" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransportResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="track_id" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Transport">
+    <wsdl:part element="tns:Transport" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransportResponse">
+    <wsdl:part element="tns:TransportResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="transport">
+    <wsdl:operation name="Transport">
+      <wsdl:input message="tns:Transport"></wsdl:input>
+      <wsdl:output message="tns:TransportResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="transportSOAP" type="tns:transport">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Transport">
+      <soap:operation soapAction="http://idu0080.ttu.ee/transport/Transport"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="transport">
+    <wsdl:port binding="tns:transportSOAP" name="transportSOAP">
+      <soap:address location="http://localhost:8080/BPTeenused/services/transportSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/BPTeenused/services/transportSOAP</con:endpoint></con:endpoints><con:operation id="344b6762-0e43-456b-ae04-5c18f2b338eb" isOneWay="false" action="http://idu0080.ttu.ee/transport/Transport" name="Transport" bindingOperationName="Transport" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="32921ace-34dc-4d4d-b031-972dd0e2cb9e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/BPTeenused/services/transportSOAP</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://idu0080.tud.ttu.ee/transport/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:Transport>\r
+         <pakkumus_id>?</pakkumus_id>\r
+      </tran:Transport>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://idu0080.ttu.ee/transport/Transport"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
